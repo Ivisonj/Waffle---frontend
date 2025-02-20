@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 import { Geist, Geist_Mono } from "next/font/google";
 import { QueryClientProvider } from "@tanstack/react-query";
 import NextAuthSessionProvider from "@/providers/sessionProvider";
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <NextAuthSessionProvider>
           <QueryClientProvider client={queryClient}>
+            <Toaster />
             {children}
           </QueryClientProvider>
         </NextAuthSessionProvider>

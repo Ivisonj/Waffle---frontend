@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className="w-screen h-screen"></div>;
+  return <div className="flex w-full h-full">teste</div>;
 }
