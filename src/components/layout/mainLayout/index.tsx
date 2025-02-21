@@ -12,7 +12,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
       <Drawer />
       <div className="w-full lg:w-4/5 h-full lg:p-5 flex flex-col lg:rounded-[15px] lg:bg-gray-200 lg:gap-3">
         <Header email={session?.user.email!} />
-        <div className="w-full h-[100%] lg:bg-brand-white lg:rounded-[20px] lg:p-1 text-black flex">
+        <div className="w-[100%] h-[100%] lg:bg-brand-white lg:rounded-[20px] lg:p-1 text-black flex overflow-y-auto">
           {children}
         </div>
         <BottomNavigation />
