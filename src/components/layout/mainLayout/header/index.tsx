@@ -1,6 +1,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const Header = () => {
+interface HeaderProps {
+  email: string;
+}
+
+const Header = ({ email }: HeaderProps) => {
   return (
     <header className="w-full h-[300px] lg:h-[60px] bg-gray-200 lg:bg-brand-white lg:rounded-[50px] lg:p-1 text-white flex flex-col lg:flex-row items-center justify-center lg:justify-end lg:px-4">
       <div className="w-full flex items-center justify-between lg:justify-start lg:px-0">
@@ -15,12 +19,12 @@ const Header = () => {
         </Avatar>
         <div className="w-auto lg:block hidden text-black">
           <p className="text-base">Olá,</p>
-          <h1 className="text-lg font-bold">ivison@test.com</h1>
+          <h1 className="text-lg font-bold">{email}</h1>
         </div>
       </div>
       <div className="w-full px-4 py-3 lg:hidden block text-black">
         <p className="text-base">Olá,</p>
-        <h1 className="text-lg font-bold">ivison@test.com</h1>
+        <h1 className="text-lg font-bold">{email}</h1>
       </div>
     </header>
   );
