@@ -13,13 +13,13 @@ const Pages = [
       {
         id: "dashboard",
         title: "Dashboard",
-        url: "waffle/dashboard",
+        url: "/waffle/dashboard",
         icon: icons.AreaChartOutlined,
       },
       {
         id: "profile",
         title: "Perfil",
-        url: "waffle/profile",
+        url: "/waffle/profile",
         icon: icons.UserOutlined,
       },
     ],
