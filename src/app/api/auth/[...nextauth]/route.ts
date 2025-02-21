@@ -1,43 +1,46 @@
-import { axiosAuth } from "@/data/axios";
-import NextAuth, { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
+import { handlers } from "@/auth";
+export const { GET, POST } = handlers;
 
-const nextAuthOptions: NextAuthOptions = {
-  providers: [
-    CredentialsProvider({
-      name: "credentials",
-      credentials: {
-        email: { label: "email", type: "text" },
-      },
-      async authorize(credentials) {
-        const response = await axiosAuth.post("/api/v1/user/signin", {
-          email: credentials?.email,
-        });
+// import { axiosAuth } from "@/data/axios";
+// import NextAuth, { NextAuthOptions } from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
 
-        const user = await response.data;
+// const nextAuthOptions: NextAuthOptions = {
+//   providers: [
+//     CredentialsProvider({
+//       name: "credentials",
+//       credentials: {
+//         email: { label: "email", type: "text" },
+//       },
+//       async authorize(credentials) {
+//         const response = await axiosAuth.post("/api/v1/user/signin", {
+//           email: credentials?.email,
+//         });
 
-        if (user) {
-          return user;
-        } else {
-          return null;
-        }
-      },
-    }),
-  ],
-  pages: {
-    signIn: "/auth",
-  },
-  callbacks: {
-    async jwt({ token, user }) {
-      return { ...token, ...user };
-    },
-    async session({ session, token }) {
-      session.user = token as any;
-      return session;
-    },
-  },
-};
+//         const user = await response.data;
 
-const handler = NextAuth(nextAuthOptions);
+//         if (user) {
+//           return user;
+//         } else {
+//           return null;
+//         }
+//       },
+//     }),
+//   ],
+//   pages: {
+//     signIn: "/auth/signin",
+//   },
+//   callbacks: {
+//     async jwt({ token, user }) {
+//       return { ...token, ...user };
+//     },
+//     async session({ session, token }) {
+//       session.user = token as any;
+//       return session;
+//     },
+//   },
+// };
 
-export { handler as GET, handler as POST };
+// const handler = NextAuth(nextAuthOptions);
+
+// export { handler as GET, handler as POST };

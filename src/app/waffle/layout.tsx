@@ -1,21 +1,23 @@
-"use client";
-import * as React from "react";
-import { Provider as ReduxProvider } from "react-redux";
 import { ReactNode } from "react";
 
 import MainLayout from "@/components/layout/mainLayout";
-import { store } from "@/store";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 interface WaffleLayoutProps {
   children: ReactNode;
 }
 
-const WaffleLayout = ({ children }: WaffleLayoutProps) => {
+const WaffleLayout = async ({ children }: WaffleLayoutProps) => {
+  const session = await auth();
+
+  if (!session) {
+    redirect("/auth/signin");
+  }
+
   return (
     <>
-      {/* <ReduxProvider store={store}> */}
       <MainLayout>{children}</MainLayout>
-      {/* </ReduxProvider> */}
     </>
   );
 };
