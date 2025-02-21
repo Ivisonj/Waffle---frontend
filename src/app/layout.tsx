@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <NextAuthSessionProvider>
           <QueryClientProvider client={queryClient}>
-            <Toaster />
+            <Toaster richColors position="top-right" />
             {children}
           </QueryClientProvider>
         </NextAuthSessionProvider>

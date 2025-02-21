@@ -27,7 +27,7 @@ const SigninForm = () => {
     resolver: zodResolver(signInFormFormSchema),
     mode: "onChange",
     defaultValues: {
-      email: "test@test.com",
+      email: "test2@test.com",
     },
   });
 
@@ -38,11 +38,11 @@ const SigninForm = () => {
     });
 
     if (response?.error) {
-      toast.error("Credenciais inválidas");
+      toast.error("Credencial inválida");
       return;
     }
 
-    router.replace(`/waffle/user/dashboard`);
+    router.replace(`/waffle/dashboard`);
   };
 
   return (
