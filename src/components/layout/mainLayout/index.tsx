@@ -1,11 +1,17 @@
 import Drawer from "./drawer";
+import Header from "./header";
+import BottomNavigation from "./bottomNavigation";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-screen h-screen flex p-2 bg-white gap-2">
+    <div className="w-screen h-screen flex lg:p-3 bg-white lg:gap-3">
       <Drawer />
-      <div className="w-4/5 h-full p-5 flex flex-col rounded-[15px] bg-gray-200">
-        {children}
+      <div className="w-full lg:w-4/5 h-full lg:p-5 flex flex-col lg:rounded-[15px] lg:bg-gray-200 lg:gap-3">
+        <Header />
+        <div className="w-full h-[100%] lg:bg-brand-white lg:rounded-[20px] lg:p-1 text-black flex">
+          {children}
+        </div>
+        <BottomNavigation />
       </div>
     </div>
   );
