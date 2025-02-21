@@ -7,6 +7,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import AdminStatistics from "@/components/adminStatistics";
+
 const readersRaking = [
   {
     email: "test@test.com",
@@ -24,6 +26,9 @@ const AdminDashboardContent = () => {
       <header className="flex items-center justify-between mb-6">
         <h1 className="text-1xl font-bold">Dashboard</h1>
       </header>
+      <section className="w-[100%] h-auto flex flex-row justify-beetwen">
+        <AdminStatistics />
+      </section>
       <section>
         <Table className="border border-gray-300 rounded-[15px] mb-5">
           <TableHeader>
